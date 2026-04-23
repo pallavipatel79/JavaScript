@@ -1,0 +1,6 @@
+{
+  "name": "Node.js Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+  "features": {},
+  "postCreateCommand": "node -v"
+}
