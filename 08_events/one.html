@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="road" src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Image_created_with_a_mobile_phone.png" alt="road"></li>
+
+            <li><img width="200px" id="mountain" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBiomb6lkd9FFgqdpsXcYFNyXPxT9F3nJbRQ&s" alt="mountain"></li>
+
+            <li><img width="200px" id="strawberry" src="https://static.vecteezy.com/system/resources/thumbnails/057/068/323/small/single-fresh-red-strawberry-on-table-green-background-food-fruit-sweet-macro-juicy-plant-image-photo.jpg" alt="strawberry" ></li>
+
+            <li><img width="200px" id="flowers" src="https://cdn.pixabay.com/photo/2024/04/11/11/27/daisy-8689696_1280.jpg" alt="flowers"></li>
+            
+            <li><img width="200px" id="clouds" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuVAtq1BqtnhaVNj0u20LSZpdcAja3NCmYbw&s" alt="clouds"></li>
+
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('strawberry').onclick = function(){
+    //     alert("strawberry clicked")
+    // }
+    //this approach gives you less features
+
+    //attachEvent()
+    //jQuery - on
+
+    
+    
+
+    //best approach
+    // document.getElementById('strawberry').addEventListener('click',function(e){
+    //     // alert("strawberry clicked")
+    //     console.log(e);
+    // },false)
+
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log("clicked inside the ul");
+    // },false)
+
+    // document.getElementById('strawberry').addEventListener('click',function(e){
+    //     console.log("strawberry clicked")
+    //     e.stopPropagation()//event will not go upper in the bubble
+    // },false)      
+    
+    // // The third attribute here shows event propagation as true or false it is false by default means innermost Element will work first then outter
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     console.log("google")
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    // },false)
+
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName)
+
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id)
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+
+        // removeIt.parentNode.removeChild(removeIt)
+    },false)
+</script>
+</html>
